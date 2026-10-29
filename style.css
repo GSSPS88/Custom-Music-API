@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(0deg, #185aad, #43cea2);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.music-container {
+    background-color:  #fff;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.47);
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 1;
+}
+
+.img-container {
+    position: relative;
+    width: 100px;
+}
+
+.img-container img{
+    width: inherit;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 5s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.action-btn {
+    background: none;
+    border: 0;
+    color: #b0afb0;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+.action-btn:focus {
+    outline: 0;
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+.music-info {
+    background-color: #63cdc95d;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    width:100%;;
+    left: 0px;
+    opacity: 0;
+    transform: translateY(0%);
+    padding: 10px 10px 10px 150px;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.music-container.play .music-info {
+    transform: translateY(-90%);
+    opacity: 1;
+}
+
+.music-info h4 {
+    margin: 0;
+}
+
+.progress-container {
+    background-color: #e8e8e8;
+    box-shadow: inset 2px 1px 2px 1px rgba(0, 0, 0, 0.427);
+    width: 90%;
+    height: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: .3s;
+}
+.progress-container:hover {
+    transform: scale(1.1);
+}
+
+.progress {
+    background: linear-gradient(30deg, #ffff3bdc, #ebb537e5, #ce6a43);
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+.progress::before {
+    content: '';
+    width: 10px;
+    height: 160%;
+    bottom: 1.92px;
+    position: relative;
+    border-radius: 50%;
+    background: #fff;
+    float: right;
+    transform: scale(1.2);
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.6);
+}
+.progress:hover {
+    transform: scale(1.05);
+}
